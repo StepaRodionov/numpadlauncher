@@ -11,7 +11,8 @@ jobs:
           java-version: '17'
       - run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
       - uses: gradle/actions/setup-gradle@v3
-      - run: chmod +x ./gradlew || true
+        with:
+          gradle-version: 8.4
       - run: gradle assembleDebug
       - uses: actions/upload-artifact@v4
         with:
